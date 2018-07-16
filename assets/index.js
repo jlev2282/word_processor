@@ -14,7 +14,7 @@ $(document).ready(function(){
 
    var actionKeys = [
        [1,2,3,4,5,6,7,8,9,0,"-","=","BACKSPACE"],
-       ["[","]"],
+       ["[","]","CLEAR"],
        [";","'","ENTER"],
        [",",".","SHIFT"],
        ["SPACE"]
@@ -55,6 +55,9 @@ $(document).ready(function(){
            if (key2create[k] == "SPACE") {
                button.attr("style", "width: 300px;");
            }
+           if (key2create[k] == "CLEAR") {
+               button.attr("class", "key btn btn-danger")
+           }
            $("#" + row).append(button);
        }
    }
@@ -63,7 +66,7 @@ $(document).ready(function(){
    $(".key").click(function(){
        console.log($(this));
        //create instances to control for true action buttons
-       if($(this)[0].innerText == "BACKSPACE" || $(this)[0].innerText == "ENTER" || $(this)[0].innerText == "SHIFT" || $(this)[0].innerText == "SPACE" ) {
+       if($(this)[0].innerText == "BACKSPACE" || $(this)[0].innerText == "ENTER" || $(this)[0].innerText == "SHIFT" || $(this)[0].innerText == "SPACE" || $(this)[0].innerText == "CLEAR" ) {
 
            return;
        } else {
