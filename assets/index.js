@@ -5,14 +5,14 @@ $(document).ready(function(){
        ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"],
        ["a", "s", "d", "f", "g", "h", "j", "k", "l"],
        ["z","x","c","v","b","n","m"],
-       ["SPACE"]
    ];
 
    var actionKeys = [
        [1,2,3,4,5,6,7,8,9,0,"-","=","BACKSPACE"],
        ["[","]"],
        [";","'","ENTER"],
-       [",",".","SHIFT"]
+       [",",".","SHIFT"],
+       ["SPACE"]
    ];
 
    //create for loop that goes over array and calls function to make each row of keys
@@ -52,9 +52,16 @@ $(document).ready(function(){
    }
 
    $(".key").click(function(){
-       console.log(this);
-       $("#display").append(this.innerText);
-   })
+       console.log($(this));
+       //create instances to control for true action buttons
+       if($(this)[0].innerText == "BACKSPACE" || $(this)[0].innerText == "ENTER" || $(this)[0].innerText == "SHIFT" || $(this)[0].innerText == "SPACE" ) {
+
+           return;
+       } else {
+           $("#display").append(this.innerText);
+       }
+
+   });
        //loop over the row2create array
        //for each index
        //create a dom button

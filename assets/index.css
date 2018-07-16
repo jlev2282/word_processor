@@ -7,9 +7,16 @@ button {
 }
 
 #display {
-    margin-top: 15px;
+    margin-top: 50px;
+    margin-bottom: 15px;
     padding: 35px;
     text-align: left;
     min-height: 40vh;
     background-color: azure;
+    border: solid;
+    border-color: slategrey;
+}
+
+#4 button {
+    width: 300px;
 }
