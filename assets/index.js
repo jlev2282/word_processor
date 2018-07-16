@@ -67,7 +67,9 @@ $(document).ready(function(){
        console.log($(this));
        //create instances to control for true action buttons
        if($(this)[0].innerText == "BACKSPACE" || $(this)[0].innerText == "ENTER" || $(this)[0].innerText == "SHIFT" || $(this)[0].innerText == "SPACE" || $(this)[0].innerText == "CLEAR" ) {
-
+            if($(this)[0].innerText == "CLEAR" ){
+                $("#display").empty();
+            }
            return;
        } else {
            $("#display").append(this.innerText);
