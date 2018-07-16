@@ -9,8 +9,9 @@ $(document).ready(function(){
    ];
 
    var actionKeys = [
+       [1,2,3,4,5,6,7,8,9,0,"-","=","BACKSPACE"],
        ["[","]"],
-       [";","'","ENTER",],
+       [";","'","ENTER"],
        [",",".","SHIFT"]
    ];
 
@@ -18,8 +19,12 @@ $(document).ready(function(){
    for (i=0; i < keys.length; i++){
        var row = i+1;
        createKeys(keys[i], row);
-       createActionKeys(actionKeys, row);
    }
+
+    for (i=0; i < actionKeys.length; i++){
+        var row = i;
+        createActionKeys(actionKeys[i], row);
+    }
 
    //create function that creates each row
    function createKeys (row2create, row) {
@@ -34,10 +39,14 @@ $(document).ready(function(){
 
    //create the function that creates the actions keys
    function createActionKeys(key2create, row) {
-       for (j = 0; j < key2create.length; j++) {
+       for ( k = 0; k < key2create.length; k++) {
+
+           // if (row == 1) {
+           //     continue;
+           // }
            var button = $("<button>");
-           button.attr({"data-key": key2create[j], "class": "key btn btn-warning"});
-           button.text(key2create[j]);
+           button.attr({"data-key": key2create[k], "class": "key btn btn-warning"});
+           button.text(key2create[k]);
            $("#" + row).append(button);
        }
    }
