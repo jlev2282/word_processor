@@ -2,7 +2,8 @@ $(document).ready(function(){
 
    var validKeys = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k","l",
                     "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x",
-                    "y","z","1","2","3","4","5","6","7","8","9","0"
+                    "y","z","1","2","3","4","5","6","7","8","9","0",",",".",";",
+                    "'","[","]","-"
    ];
     //create array of keys to use
    var keys = [
@@ -72,9 +73,17 @@ $(document).ready(function(){
    });
 
     $(document).keyup(function(event){
-       console.log(validKeys.indexOf(event.key));
         if(validKeys.indexOf(event.key) >= 0) {
             $("#display").append(event.key);
+        }
+        if(event.key == "Enter"){
+            var lineBreak = $("<br>");
+            $("#display").append(lineBreak);
+        }
+
+        if(event.key == " "){
+            console.log("you pressed the space bar");
+            $("#display").append(" ");
         }
     });
 
