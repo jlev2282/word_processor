@@ -7,6 +7,7 @@ button {
 }
 
 #display {
+    word-wrap: break-word;
     margin-top: 50px;
     margin-bottom: 15px;
     padding: 35px;
@@ -15,8 +16,4 @@ button {
     background-color: azure;
     border: solid;
     border-color: slategrey;
-}
-
-#4 button {
-    width: 300px;
 }

@@ -1,5 +1,9 @@
 $(document).ready(function(){
 
+   var validKeys = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k","l",
+                    "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x",
+                    "y","z","1","2","3","4","5","6","7","8","9","0"
+   ];
     //create array of keys to use
    var keys = [
        ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"],
@@ -47,10 +51,14 @@ $(document).ready(function(){
            var button = $("<button>");
            button.attr({"data-key": key2create[k], "class": "key btn btn-warning"});
            button.text(key2create[k]);
+           if (key2create[k] == "SPACE") {
+               button.attr("style", "width: 300px;");
+           }
            $("#" + row).append(button);
        }
    }
 
+   //event to print or not print key pressed to display when button clicked
    $(".key").click(function(){
        console.log($(this));
        //create instances to control for true action buttons
@@ -62,7 +70,17 @@ $(document).ready(function(){
        }
 
    });
-       //loop over the row2create array
+
+    $(document).keyup(function(event){
+       console.log(validKeys.indexOf(event.key));
+        if(validKeys.indexOf(event.key) >= 0) {
+            $("#display").append(event.key);
+        }
+    });
+
+    //event to print or not print key pressed to display when key pressed
+
+    //loop over the row2create array
        //for each index
        //create a dom button
        //assign attribute data-key and set to row2create current index
